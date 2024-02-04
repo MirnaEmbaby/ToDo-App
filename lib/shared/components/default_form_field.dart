@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/shared/styles/colors.dart';
 
 Widget? defaultFormField({
   required TextEditingController controller,
@@ -10,6 +11,7 @@ Widget? defaultFormField({
   required Function validate,
   required String label,
   required IconData prefix,
+  required bool hasSuffix,
   IconData? suffix,
   Function? suffixPressed,
   bool isClickable = true,
@@ -25,7 +27,7 @@ Widget? defaultFormField({
       validator: (s) => validate(s),
       decoration: InputDecoration(
         labelText: label,
-        icon: Icon(suffix),
+        icon: hasSuffix ? Icon(suffix) : null,
         prefixIcon: Icon(prefix),
         suffixIcon: suffix != null
             ? IconButton(
@@ -33,6 +35,12 @@ Widget? defaultFormField({
                 icon: Icon(suffix),
               )
             : null,
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: darkBlue,
+            width: 2.0,
+          ),
+        ),
         border: const OutlineInputBorder(),
       ),
     );
