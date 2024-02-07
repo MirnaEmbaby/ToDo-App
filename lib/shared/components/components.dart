@@ -44,3 +44,36 @@ Widget? defaultFormField({
         border: const OutlineInputBorder(),
       ),
     );
+
+Widget buildTaskItem(Map model) => Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 40.0,
+            backgroundColor: lightBlue,
+            child: Text('${model['time']}'),
+          ),
+          const SizedBox(
+            width: 20.0,
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${model['title']}',
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                '${model['date']}',
+                style: const TextStyle(color: Colors.blueGrey),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
