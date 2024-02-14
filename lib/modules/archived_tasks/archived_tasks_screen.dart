@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/shared/components/components.dart';
+import 'package:to_do_app/shared/cubit/cubit.dart';
+import 'package:to_do_app/shared/cubit/states.dart';
 
 class ArchivedTasksScreen extends StatelessWidget {
   const ArchivedTasksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Archived tasks',
-        style: TextStyle(
-          fontSize: 25.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+    return BlocConsumer<AppCubit, AppStates>(
+      listener: (context, state) {},
+      builder: (context, Object? state) {
+        var tasks = AppCubit.get(context).archivedTasks;
+        return tasksBuilder(tasks: tasks);
+      },
     );
   }
 }
