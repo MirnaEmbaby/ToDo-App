@@ -130,6 +130,29 @@ class HomeLayout extends StatelessWidget {
                                           context: context,
                                           barrierColor: darkBlue,
                                           initialTime: TimeOfDay.now(),
+                                          builder: (context, child) {
+                                            return Theme(
+                                              data: Theme.of(context).copyWith(
+                                                colorScheme:
+                                                    const ColorScheme.light(
+                                                  primary: darkBlue,
+                                                  onPrimary: Colors.white,
+                                                  onSurface: darkBlue,
+                                                  onBackground: darkBlue,
+                                                  onPrimaryContainer:
+                                                      Colors.white,
+                                                  tertiary: darkBlue,
+                                                ),
+                                                textButtonTheme:
+                                                    TextButtonThemeData(
+                                                  style: TextButton.styleFrom(
+                                                    foregroundColor: darkBlue,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: child!,
+                                            );
+                                          },
                                         ).then((value) {
                                           timeController.text =
                                               value!.format(context).toString();
@@ -157,6 +180,29 @@ class HomeLayout extends StatelessWidget {
                                           firstDate: DateTime.now(),
                                           lastDate:
                                               DateTime.parse('2050-01-01'),
+                                          builder: (context, child) {
+                                            return Theme(
+                                              data: Theme.of(context).copyWith(
+                                                colorScheme:
+                                                const ColorScheme.light(
+                                                  primary: darkBlue,
+                                                  onPrimary: Colors.white,
+                                                  onSurface: darkBlue,
+                                                  onBackground: darkBlue,
+                                                  onPrimaryContainer:
+                                                  Colors.white,
+                                                  tertiary: darkBlue,
+                                                ),
+                                                textButtonTheme:
+                                                TextButtonThemeData(
+                                                  style: TextButton.styleFrom(
+                                                    foregroundColor: darkBlue,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: child!,
+                                            );
+                                          },
                                         ).then((value) {
                                           dateController.text =
                                               DateFormat.yMMMd().format(value!);
